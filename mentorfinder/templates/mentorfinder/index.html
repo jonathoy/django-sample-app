@@ -3,10 +3,10 @@
 {% block title %}MentorFinder{% endblock %}
 {% block content %}
 <div class="jumbotron">
-  <h1 class="display-4">Hello!</h1>
-  <p class="lead">This is a sample Django application.</p>
-  <hr class="my-4">
-  <p>It follows the standard Django tutorial and allows users to sign-up and become mentors.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Get started!</a>
+	<h1 class="display-4">Hello!</h1>
+	<p class="lead">This is a sample Django application.</p>
+	<hr class="my-4">
+	<p>It follows the standard Django tutorial and allows users to sign-up and become mentors.</p>
+	<a class="btn btn-primary btn-lg" href="{% url 'create' %}" role="button">Get started!</a>
 </div>
 {% endblock %}
