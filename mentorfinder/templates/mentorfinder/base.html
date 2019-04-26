@@ -20,11 +20,17 @@
 		</div>
 
 		{% if messages %}
-		<div class="alert alert-info" role="alert">
 			{% for message in messages %}
-			<span{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</span>
+				{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+				<div class="alert alert-danger" role="alert">
+				{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+				<div class="alert alert-success" role="alert">
+				{% else %}
+				<div class="alert alert-primary" role="alert">
+				{% endif %}
+					<span{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</span>
+				</div>
 			{% endfor %}
-		</div>
 		{% endif %}
 		{% block content %}{% endblock %}
 	</div>

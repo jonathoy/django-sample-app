@@ -17,19 +17,12 @@ class CreateMentor(FormView):
 
     def post(self, request):
         form = self.form_class(request.POST)
+
         if form.is_valid():
-            mentor = Mentor.objects.create(
-                email=form.cleaned_data['email'],
-                first_name=form.cleaned_data['first_name'],
-                last_name=form.cleaned_data['last_name'],
-                phone=form.cleaned_data['phone'],
-                available=form.cleaned_data['available'],
-            )
-            messages.add_message(
-                request, messages.SUCCESS, f'Successfully added {mentor.first_name} {mentor.last_name}!'
-            )
+            form.save()
+            name = f'{form.cleaned_data["first_name"]} {form.cleaned_data["last_name"]}'
+            messages.add_message(request, messages.SUCCESS, f'Successfully added {name}')
             return HttpResponseRedirect(reverse('create'))
-        messages.add_message(
-            request, messages.ERROR, f'An error occurred while attempting to add {mentor.first_name} {mentor.last_name}'
-        )
+
+        messages.add_message(request, messages.ERROR, f'An error occurred while attempting to add mentor')
         return render(request, self.template_name, {'form': form})
