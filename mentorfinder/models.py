@@ -1,8 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 class Mentor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=128)
+    email = models.EmailField(
+        verbose_name='email address',
+        max_length=255,
+        unique=True,
+    )
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=30, blank=True)
     phone = models.PositiveSmallIntegerField()
     available = models.BooleanField()
