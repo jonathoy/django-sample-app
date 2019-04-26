@@ -7,6 +7,7 @@ from django.views.generic.edit import FormView
 from .models import Mentor
 from .forms import CreateMentorForm
 
+
 def index(request):
     return render(request, 'mentorfinder/index.html')
 

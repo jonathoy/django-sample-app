@@ -3,7 +3,9 @@
 {% block title %}Add Mentor{% endblock %}
 {% block content %}
 
-<h1>Add a Mentor</h1>
+<h1>Sign Up</h1>
+<p class="lead">Enter your information below to sign up to become a mentor!</p>
+
 <form action="create" method="post">
 	{% csrf_token %}
 	{{ form.non_field_errors }}
