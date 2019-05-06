@@ -11,6 +11,7 @@ from .forms import CreateMentorForm
 def index(request):
     return render(request, 'mentorfinder/index.html')
 
+
 class CreateMentor(FormView):
     form_class = CreateMentorForm
     template_name = 'mentorfinder/create.html'
@@ -21,8 +22,10 @@ class CreateMentor(FormView):
         if form.is_valid():
             form.save()
             name = f'{form.cleaned_data["first_name"]} {form.cleaned_data["last_name"]}'
-            messages.add_message(request, messages.SUCCESS, f'Successfully added {name}')
+            messages.add_message(request, messages.SUCCESS,
+                                 f'Successfully added {name}')
             return HttpResponseRedirect(reverse('create'))
 
-        messages.add_message(request, messages.ERROR, f'An error occurred while attempting to add mentor')
+        messages.add_message(request, messages.ERROR,
+                             f'An error occurred while attempting to add mentor')
         return render(request, self.template_name, {'form': form})
