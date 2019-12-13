@@ -9,7 +9,7 @@ It is a Python/Django web application that follows in line with the official [tu
 ## Setup
 
 1. Fork/clone this repo
-2. Install [Python 3.7](https://www.python.org/downloads/)
+2. Install [Python 3.7](https://www.python.org/downloads/) or later
 3. Install [pipenv](https://pipenv.readthedocs.io/en/latest/#install-pipenv-today)
 4. Run `pipenv install`
 
