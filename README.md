@@ -6,6 +6,8 @@ This sample application is intended to allow users to find and sign-up as mentor
 
 It is a Python/Django web application that follows in line with the official [tutorial](https://docs.djangoproject.com/en/2.2/intro/tutorial01/)
 
+Pipenv is used for package management
+
 ## Setup
 
 1. Fork/clone this repo
